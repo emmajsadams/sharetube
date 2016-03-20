@@ -1,9 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import 'babel-polyfill';
+
+import React from 'react'
+import { render } from 'react-dom';
+import { Router, Route, Link, browserHistory } from 'react-router'
+import { Provider } from 'react-redux'
 import configureStore from './configureStore'
 
-const store = configureStore({ text: [ 'Use Redux', 'You Big', 'Dummy!' ] })
+import VideoContainer from './containers/videoContainer'
 
-ReactDOM.render(
-  <p>{store.getState().text.join(',')}</p>,
-  document.getElementById('body'))
+const store = configureStore({})
+
+render((
+  <Provider store={store}>
+    <VideoContainer/>
+  </Provider>
+), document.body)
+
+/*
+<Router history={browserHistory}>
+  <Route path="/" component={VideoContainer}/>
+</Router>
+*/

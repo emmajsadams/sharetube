@@ -1,19 +1,18 @@
 import { combineReducers } from 'redux'
+import { handleAction } from 'redux-actions';
 
-function test(state = [], action) {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return state.concat([ action.text ])
-    default:
-      return state
-  }
-}
+import {
+  FETCH_VIDEO
+} from '../actions/video'
 
-export default test
 
-/*
-TODO: Figure out error with combineReducers
-export default combineReducers({
-  test,
+const video = handleAction(FETCH_VIDEO, {
+  next: (state, action) => ({
+    video: action.payload
+  }),
+  throw: (state, action) => ({
+    video: action.payload
+  })
 });
-*/
+
+export default video
