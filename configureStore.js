@@ -1,12 +1,14 @@
 import { createStore, applyMiddleware } from 'redux'
+import { compose } from 'fjs'
 import promiseMiddleware from 'redux-promise'
-import rootReducer from './reducers/root'
+import rootReducer from './reducers'
 
 export default function configureStore(initialState) {
   return createStore(
     rootReducer,
     initialState,
-    applyMiddleware(
-      promiseMiddleware
+    compose(
+      applyMiddleware(promiseMiddleware),
+      window.devToolsExtension ? window.devToolsExtension() : f => f
     ));
 }

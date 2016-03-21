@@ -1,8 +1,5 @@
-import 'babel-polyfill';
-
 import React from 'react'
 import { render } from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 import configureStore from './configureStore'
 
@@ -12,12 +9,6 @@ const store = configureStore({})
 
 render((
   <Provider store={store}>
-    <VideoContainer/>
+    <VideoContainer />
   </Provider>
-), document.body)
-
-/*
-<Router history={browserHistory}>
-  <Route path="/" component={VideoContainer}/>
-</Router>
-*/
+), document.getElementById('react-mount'))

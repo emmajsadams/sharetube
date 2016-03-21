@@ -18,14 +18,13 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
-        // include: PATHS.app
+        exclude: /node_modules/,
+        loaders: ['style', 'css']
       },
-      // Set up jsx. This accepts js too thanks to RegExp
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel', // 'babel-loader' is also a legal name to reference
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['babel', 'eslint']
       }
     ]
   }

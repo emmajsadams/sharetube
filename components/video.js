@@ -1,20 +1,22 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { Button } from 'react-bootstrap'
 
-class Video extends Component {
-  constructor(props) {
-    super(props)
-  }
+import { fetchVideo } from '../actions/video'
 
-  render() {
-    return (<div>
-      <p>Test</p>
-      <p>{JSON.stringify(this.props.video)}</p>
-    </div>)
-  }
+const Video = (props) => {
+  // TODO: get url from video?
+  const url = 'https://raw.githubusercontent.com/codystebbins/dstruct/master/tsd.json';
+  const getVideo = () => props.dispatch(fetchVideo(url))
+
+  return (<div>
+    <p>{JSON.stringify(props.video)}</p>
+    <Button bsStyle="primary" onClick={getVideo}>Get Video</Button>
+  </div>)
 }
-
-Video.defaultProps = {
-  video: {}
+Video.propTypes = {
+  video: PropTypes.object,
+  dispatch: PropTypes.func.isRequired,
 };
 
-export default Video
+export default connect()(Video)
