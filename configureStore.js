@@ -1,11 +1,13 @@
 import { createStore, applyMiddleware } from 'redux'
 import { compose } from 'fjs'
 import promiseMiddleware from 'redux-promise'
-import rootReducer from './reducers'
+
+// TODO: use immmuteable js to combine reducers
+import videos from './reducers/videos'
 
 export default function configureStore(initialState) {
   return createStore(
-    rootReducer,
+    videos,
     initialState,
     compose(
       applyMiddleware(promiseMiddleware),

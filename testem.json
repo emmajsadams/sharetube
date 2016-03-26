@@ -1,0 +1,6 @@
+{
+  "framework": "tap",
+  "src_files": [
+    "tmp/test-bundle.js"
+  ]
+}
