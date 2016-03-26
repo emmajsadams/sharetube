@@ -1,7 +1,9 @@
 module.exports = {
-  entry: {
+  /*entry: {
     app: './index.js'
-  },
+  },*/
+
+  entry: ['./test.js', './index.js']
 
   // Add resolve.extensions.
   // '' is needed to allow imports without an extension.
