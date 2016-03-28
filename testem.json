@@ -1,6 +1,7 @@
 {
   "framework": "tap",
-  "src_files": [
-    "tmp/test-bundle.js"
-  ]
+  "serve_files": [ "tmp/test-bundle.js" ],
+  "src_files": [ "src/**/*.js" ],
+  "before_tests": "npm run bundle-tests",
+  "launch_in_dev": ["PhantomJS"]
 }

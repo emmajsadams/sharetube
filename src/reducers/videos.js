@@ -1,7 +1,12 @@
 import { handleAction, createAction } from 'redux-actions'
-import fetch from 'isomorphic-fetch'
+import { fetchJson } from '../lib/api'
 
-const FETCH_VIDEO = 'FETCH_VIDEO'
+export const FETCH_VIDEO = 'FETCH_VIDEO'
+
+export const fetchVideo =
+  createAction(FETCH_VIDEO, url => fetchJson(url))
+
+export const selectVideo = state => state.video
 
 export default handleAction(FETCH_VIDEO, {
   next: (state, action) => ({
@@ -11,6 +16,3 @@ export default handleAction(FETCH_VIDEO, {
     error: action.payload,
   }),
 });
-
-export const fetchVideo =
-  createAction(FETCH_VIDEO, url => (fetch(url).then(req => req.json())))
