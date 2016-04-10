@@ -3,7 +3,7 @@
   "author": "Cody Stebbins",
   "version": "1.0.0",
   "description": "staytuned",
-  "keywords": [ "tube", ],
+  "keywords": [ "tube" ],
   "license": "MIT",
   "homepage": "https://github.com/codystebbins/blocktube#readme",
   "main": "src/index.js",

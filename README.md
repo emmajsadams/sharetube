@@ -1,4 +1,5 @@
 # blocktube
+[![Build Status](https://travis-ci.org/codystebbins/blocktube.svg?branch=master)](https://travis-ci.org/codystebbins/blocktube)
 
 http://localhost:8080/?videoUrl=https://gist.githubusercontent.com/codystebbins/0f02004fd00caa230c843d944145f1c6/raw/3693c6d917dea2bde190318940d08599749c60b6/video.json
 
