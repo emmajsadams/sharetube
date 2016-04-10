@@ -5,7 +5,7 @@ import { fetchJson } from '../lib/api'
 import { videoFetchSucceeded, VIDEO_FETCH_REQUESTED } from '../reducers/videos'
 
 export function* fetchVideo(action) {
-  const video = yield call(fetchJson, action.payload.url);
+  const video = yield call(fetchJson, action.payload);
   yield put(videoFetchSucceeded(video));
 }
 

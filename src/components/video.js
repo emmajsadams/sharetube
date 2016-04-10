@@ -1,10 +1,13 @@
 import React, { PropTypes } from 'react'
 import YouTube from 'react-youtube'
 import ReactDisqusThread from 'react-disqus-thread'
-import { Button } from 'react-bootstrap'
+import { Button, ButtonToolbar } from 'react-bootstrap'
 import { Map } from 'immutable'
 
 const noVideoFound = (<p>No video found</p>)
+const width = 640
+const height = 385
+const cssCenter = { display: 'flex', 'align-items': 'center', 'justify-content': 'center' }
 
 const createVideos = (props) => props.video.get('videos').map((v) => {
   const id = v.get('id')
@@ -12,10 +15,18 @@ const createVideos = (props) => props.video.get('videos').map((v) => {
   switch (v.get('type')) {
     case 'youtube':
       // TODO: specify size to be consistent across videos?
-      return video.set('element', <YouTube videoId={id} />)
+      return video.set('element', <YouTube videoId={id} opts={{ width, height }} />)
     case 'vimeo':
       // TODO: react-vimeo does not work, file a bug report?
-      return video.set('element', <iframe src={`https://player.vimeo.com/video/${id}`} width="640" height="385" frameBorder="0" allowFullScreen></iframe>)
+      return video.set('element', <iframe src={`https://player.vimeo.com/video/${id}`} width={width} height={height} frameBorder="0" allowFullScreen></iframe>)
+    case 'html5':
+      return video.set('element',
+        <video width={width} height={height} controls>
+          <source src={v.get('webm')} type="video/webm" />
+          <source src={v.get('mp4')} type="video/mp4" />
+          Your browser does not support the video tag.
+          Support for flash might be coming, but use a modern browser till then
+        </video>)
     default:
       return null
   }
@@ -36,8 +47,8 @@ export const Video = (props) => {
 
   // TODO: Refactor buttons into separate VideoButton component?
   return (<div>
-    <h1>{videoName}</h1>
-    <p>
+    <h1 style={cssCenter}>{videoName}</h1>
+    <ButtonToolbar style={cssCenter}>
       {videos.map((v, i) => (
         <Button
           class="button"
@@ -46,11 +57,14 @@ export const Video = (props) => {
           onClick={() => props.setVideoIndex(i)}
         >{v.get('video').get('name')}
         </Button>))}
-    </p>
-    {video.get('element')}
+    </ButtonToolbar>
+    <br />
+    <div style={cssCenter}>
+      {video.get('element')}
+    </div>
     <ReactDisqusThread
       shortname="blocktube"
-      identifier={props.video.get('id')}
+      identifier={props.url}
       title={videoName}
     />
   </div>)
@@ -59,6 +73,7 @@ Video.propTypes = {
   index: PropTypes.number,
   setVideoIndex: PropTypes.func,
   video: PropTypes.object,
+  url: PropTypes.string,
 };
 
 export default Video

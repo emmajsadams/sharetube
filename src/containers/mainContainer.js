@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import VideoContainer from './videoContainer'
 import { setVideoIndex, videoFetchRequested } from '../reducers/videos'
 
-// TODO: Better name for this?
+// TODO: Better name for MainContainer?
+// TODO: Test MainContainer
 const MainContainer = (props) => {
   props.history.listen((location) => {
     props.dispatch(setVideoIndex(0))
