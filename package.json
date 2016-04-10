@@ -16,14 +16,16 @@
     "node": "5.10.0"
   },
   "scripts": {
-    "build": "eslint src/** && npm run bundle-app | uglifyjs -c > app/bundle.js",
-    "start": "npm run bundle-app -- -w & npm run watch-test & static app & livereloadify app",
+    "build": "npm run lint && npm run bundle-app -- -t uglifyify -o tmp/bundle.js && uglifyjs tmp/bundle.js -c > app/bundle.js",
+    "start": "npm run bundle-app -- -w -o app/bundle.js & npm run watch-test & npm run static & livereloadify app",
     "browser-test": "npm run bundle-test && testem ci -P 5 | tap-min",
-    "test": "npm run tape --silent | tap-min",
+    "test": "npm run lint && npm run tape --silent | tap-min",
+    "static": "static app",
+    "lint": "eslint src/**",
     "tape": "tape -r babel-register src/**/*.test.js",
     "watch-test": "watch 'npm run tape --silent | tap-notify | tap-min' src/",
-    "bundle-app": "globify ./src/index.js -t babelify -p errorify ./src/index.js -o app/bundle.js",
-    "bundle-test": "globify 'src/**/*.test.js' -o 'tmp/test-bundle.js' -i 'react/lib/ReactContext' -i 'react/lib/ExecutionEnvironment' -t babelify -p errorify -p proxyquire-universal"
+    "bundle-app": "globify ./src/index.js -t babelify -p errorify",
+    "bundle-test": "globify 'src/**/*.test.js' -o 'tmp/test-bundle.js' -i 'react/lib/ReactContext' -i 'react/lib/ExecutionEnvironment' -t babelify -p errorify"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
   },
   "dependencies": {
     "fjs": "^0.5.0",
+    "immutable": "^3.7.6",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.6.1",
     "react": "^0.14.7",
@@ -44,6 +47,7 @@
     "react-youtube": "^5.1.0",
     "redux": "^3.3.1",
     "redux-actions": "^0.9.1",
+    "redux-immutable": "^3.0.6",
     "redux-saga": "^0.9.5"
   },
   "devDependencies": {
@@ -67,12 +71,12 @@
     "node-static": "^0.7.7",
     "phantomjs-prebuilt": "^2.1.7",
     "react-addons-test-utils": "^0.14.7",
-    "react-dom": "^0.14.7",
     "sinon": "^1.17.3",
     "sinon-as-promised": "^4.0.0",
     "tap-min": "^1.1.0",
     "tap-notify": "^1.0.0",
     "tape": "^4.5.1",
+    "teaspoon": "^6.3.0",
     "testem": "^1.6.0",
     "uglify-js": "^2.6.2",
     "uglifyify": "^3.0.1",

@@ -1,18 +1,15 @@
 # blocktube
 [![Build Status](https://travis-ci.org/codystebbins/blocktube.svg?branch=master)](https://travis-ci.org/codystebbins/blocktube)
 
-http://localhost:8080/?videoUrl=https://gist.githubusercontent.com/codystebbins/0f02004fd00caa230c843d944145f1c6/raw/3693c6d917dea2bde190318940d08599749c60b6/video.json
-
 # building
 * `npm install && npm run build`
 * app directory is ready to be hosted as a single page app
 
 # developing
 ## Essential Commands
-* Install PhantomJS http://phantomjs.org/download.html
 * `npm run start --silent` - livereload development of app and test running
 * `npm run browser-test --silent` - parallel browser test run
-* `npm run build`
+* `npm run build` - build app for distribution
 
 ## Optional Recommended Development
 * Using Atom with `linter-eslint`, `react`, and `editorconfig` plugins
@@ -41,16 +38,15 @@ http://localhost:8080/?videoUrl=https://gist.githubusercontent.com/codystebbins/
  * https://gist.github.com/substack/68f8d502be42d5cd4942
  * http://blog.namangoel.com/browserify-vs-webpack-js-drama
 
+
+https://vimeo.com/4476521
+
 TODO
+* Explain videoUrl.
+ * `?videoUrl=` is param
+ * https://gist.github.com/codystebbins/0f02004fd00caa230c843d944145f1c6
 * UI test?
  * https://voice.kadira.io/introducing-react-storybook-ec27f28de1e2#.2r53s4981
  * http://www.uiharness.com/quick-start/
-* USe watchify instead testem because speed. Consider uber-watchify even for more speed
-* TODO: make releases that can be easily downloaded
-* configure testling to run my tests
-* Use uglifiyify in build step?
 * Add a form to create video.json https://github.com/erikras/redux-form/blob/master/docs/GettingStarted.md
-* Setup immuetablejs as state https://github.com/indexiatech/redux-immutablejs &  https://facebook.github.io/immutable-js/
-* react https://github.com/troybetz/react-youtube
-* Consider RxJS project separte from redux?
-* Consider CycleJS proejct http://cycle.js.org/?
+* Make releases that can be easily downloaded

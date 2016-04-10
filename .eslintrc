@@ -1,6 +1,7 @@
 {
   "rules": {
-    "semi": 0
+    "semi": 0,
+    "new-cap": 0
   },
   "extends": "airbnb"
 }
