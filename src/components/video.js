@@ -7,7 +7,7 @@ import { Map } from 'immutable'
 const noVideoFound = (<p>No video found</p>)
 const width = 640
 const height = 385
-const cssCenter = { display: 'flex', 'align-items': 'center', 'justify-content': 'center' }
+const cssCenter = { display: 'flex', alignItems: 'center', justifyContent: 'center' }
 
 const createVideos = (props) => props.video.get('videos').map((v) => {
   const id = v.get('id')
@@ -51,7 +51,6 @@ export const Video = (props) => {
     <ButtonToolbar style={cssCenter}>
       {videos.map((v, i) => (
         <Button
-          class="button"
           key={i}
           bsStyle="primary"
           onClick={() => props.setVideoIndex(i)}

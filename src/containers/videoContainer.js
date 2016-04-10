@@ -13,7 +13,7 @@ const VideoContainer = (props) =>
     url={props.url}
   />)
 VideoContainer.propTypes = {
-  dispatch: PropTypes.fn,
+  dispatch: PropTypes.any, // TODO: Why does this complain that it is not a function
   index: PropTypes.number,
   video: PropTypes.object,
   url: PropTypes.string,

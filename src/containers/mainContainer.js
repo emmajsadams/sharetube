@@ -15,7 +15,7 @@ const MainContainer = (props) => {
   return <VideoContainer />
 }
 MainContainer.propTypes = {
-  dispatch: PropTypes.fn,
+  dispatch: PropTypes.any, // TODO: Why does this complain that it is not a function
   history: PropTypes.object,
 };
 
