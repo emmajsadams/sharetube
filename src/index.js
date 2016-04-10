@@ -2,19 +2,16 @@ import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom';
 import { Provider } from 'react-redux'
-import { Router, Route, Redirect, browserHistory } from 'react-router'
+import { createHistory, useQueries } from 'history'
 
 import configureStore from './configureStore'
 import MainContainer from './containers/mainContainer'
 
-const prefix = '/'
 const store = configureStore({})
+const history = useQueries(createHistory)()
 
 render((
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path={prefix} component={MainContainer} />
-      <Redirect from="*" to={prefix} />
-    </Router>
+    <MainContainer history={history} />
   </Provider>
 ), document.getElementById('react-mount'))

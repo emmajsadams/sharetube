@@ -6,13 +6,16 @@ import { setVideoIndex, videoFetchRequested } from '../reducers/videos'
 
 // TODO: Better name for this?
 const MainContainer = (props) => {
-  props.dispatch(setVideoIndex(0))
-  props.dispatch(videoFetchRequested(props.location.query.videoUrl))
+  props.history.listen((location) => {
+    props.dispatch(setVideoIndex(0))
+    props.dispatch(videoFetchRequested(location.query.videoUrl))
+  })
+
   return <VideoContainer />
 }
 MainContainer.propTypes = {
   dispatch: PropTypes.fn,
-  location: PropTypes.object,
+  history: PropTypes.object,
 };
 
 export default connect()(MainContainer)
