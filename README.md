@@ -1,13 +1,16 @@
-# blocktube
-[![Build Status](https://travis-ci.org/codystebbins/blocktube.svg?branch=master)](https://travis-ci.org/codystebbins/blocktube)
+# blocktube [![Build Status](https://travis-ci.org/codystebbins/blocktube.svg?branch=master)](https://travis-ci.org/codystebbins/blocktube)
 
-Shares a redundantly uploaded video.
+Shares a redundantly uploaded video. [Demo](https://codystebbins.com/blocktube/?videoUrl=https://codystebbins.com/public/blocktube/sotu2013.json) & [video.json](https://codystebbins.com/public/blocktube/sotu2013.json)
+
 * Supports YouTube, Vimeo, and HTML5 video (mp4 or WebM).
 * Creates a disqus thread based on the url of the videoUrl specified so comments persist despite a changing json file.
-* View Demo here https://codystebbins.com/blocktube/?videoUrl=https://codystebbins.com/public/blocktube/video.json
-* Example video.json https://codystebbins.com/public/blocktube/sotu2013.json
+* Use the hosted version at `https://codystebbins.com/blocktube/?videoUrl=` or host your own (latest release in `gh-pages` branch)
+* Only supported in modern browsers.
 
-Only supported in modern browsers. Use the my hosted version or host your own (latest release in `gh-pages` branch)
+# video.json
+
+Blocktube requires a `video.json` file to be specified via the `videoUrl=` query param. This section explains how to create one. It's recommended that to host the
+json file on a custom own domain so that storage providers can be changed easily via DNS without impacting blocktube urls in the wild or the disqus thread that uses the json url as an id.
 
 #### Metadata
 ```
