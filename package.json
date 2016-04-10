@@ -1,8 +1,14 @@
 {
   "name": "blocktube",
+  "author": "Cody Stebbins",
   "version": "1.0.0",
   "description": "staytuned",
+  "keywords": [ "tube", ],
+  "license": "MIT",
+  "homepage": "https://github.com/codystebbins/blocktube#readme",
   "main": "src/index.js",
+  "bugs": { "url": "https://github.com/codystebbins/blocktube/issues" },
+  "engines" : { "node" : "5.10.0" },
   "scripts": {
     "build": "eslint src/** && npm run bundle-app | uglifyjs -c > app/bundle.js",
     "start": "npm run bundle-app -- -w & npm run watch-test & static app & livereloadify app",
@@ -18,16 +24,6 @@
     "type": "git",
     "url": "git+https://codystebbins@github.com/codystebbins/blocktube.git"
   },
-  "keywords": [
-    "tube",
-    "./src/*/*.js"
-  ],
-  "author": "Cody Stebbins",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/codystebbins/blocktube/issues"
-  },
-  "homepage": "https://github.com/codystebbins/blocktube#readme",
   "dependencies": {
     "fjs": "^0.5.0",
     "guid": "0.0.12",
@@ -46,7 +42,6 @@
     "redux-saga": "^0.9.5"
   },
   "devDependencies": {
-    "babel-cli": "^6.7.5",
     "babel-core": "^6.7.2",
     "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.4",
@@ -54,7 +49,6 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.7.2",
     "babelify": "^7.2.0",
-    "blue-tape": "^0.2.0",
     "browserify": "^13.0.0",
     "enzyme": "^2.2.0",
     "errorify": "^0.3.1",
@@ -62,25 +56,18 @@
     "eslint-config-airbnb": "^6.1.0",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-react": "^4.2.3",
-    "faucet": "0.0.1",
     "fetch-mock": "^4.3.0",
-    "glob": "^7.0.3",
     "globify": "^1.2.1",
     "livereloadify": "^2.0.0",
     "node-static": "^0.7.7",
     "phantomjs-prebuilt": "^2.1.7",
-    "proxyquire": "^1.7.4",
-    "proxyquire-universal": "^1.0.8",
-    "proxyquireify": "^3.1.1",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
-    "redux-mock-store": "^1.0.2",
     "sinon": "^1.17.3",
     "sinon-as-promised": "^4.0.0",
     "tap-min": "^1.1.0",
     "tap-notify": "^1.0.0",
     "tape": "^4.5.1",
-    "tape-watch": "^1.3.0",
     "testem": "^1.6.0",
     "uglify-js": "^2.6.2",
     "uglifyify": "^3.0.1"
