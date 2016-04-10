@@ -16,7 +16,7 @@
     "node": "5.10.0"
   },
   "scripts": {
-    "build": "npm run lint && npm run bundle-app -- -t uglifyify -o tmp/bundle.js && uglifyjs tmp/bundle.js -c > app/bundle.js",
+    "build": "mkdir -p tmp && npm run lint && npm run bundle-app -- -t uglifyify -o tmp/bundle.js && uglifyjs tmp/bundle.js -c > app/bundle.js",
     "start": "npm run bundle-app -- -w -o app/bundle.js & npm run watch-test & npm run static & livereloadify app",
     "browser-test": "npm run bundle-test && testem ci -P 5 | tap-min",
     "test": "npm run lint && npm run tape --silent | tap-min",
