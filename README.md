@@ -50,6 +50,13 @@ Only supported in modern browsers. Use the my hosted version or host your own (l
 * `webm` is the url of the webm encoded video
 * Recommended to specify both because some browsers only support one or the other.
 
+# Features pending
+
+* Analytics support (segment, google analytics, etc..)
+* Custom comment sections?
+
+If anyone has any ideas let me know. This is a fun side project for learning React
+
 # Building
 * `npm install && npm run build`
 * app directory is ready to be hosted as a single page app
