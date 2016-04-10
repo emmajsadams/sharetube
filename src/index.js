@@ -9,7 +9,7 @@ import { Router, Route, Redirect, browserHistory } from 'react-router'
 import configureStore from './configureStore'
 import MainContainer from './containers/mainContainer'
 
-const prefix = process.env.ROUTE_PREFIX || '/'
+const prefix = '/'
 const store = configureStore({})
 
 render((
