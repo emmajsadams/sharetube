@@ -80,9 +80,11 @@ If anyone has any ideas let me know. This is a fun side project for learning Rea
 * UI test?
  * https://voice.kadira.io/introducing-react-storybook-ec27f28de1e2#.2r53s4981
  * http://www.uiharness.com/quick-start/
+* Automate packaging of app with randomly generated bundle name to bust cache.
 
 # Influences
 * Redux best practices https://github.com/reactjs/redux/issues/1171s
+* Inline CSS via React: https://css-tricks.com/the-debate-around-do-we-even-need-css-anymore/
 * Style: https://github.com/airbnb/javascript
 
 ## Architecture
