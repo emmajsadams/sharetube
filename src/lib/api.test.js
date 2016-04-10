@@ -1,5 +1,6 @@
-import 'fetch-mock'
 /*
+import 'fetch-mock'
+
 fetchMock.mock(url, 'GET', Promise.resolve(payload))
 
 import 'sinon-as-promised'

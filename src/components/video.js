@@ -1,52 +1,54 @@
 import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
 import YouTube from 'react-youtube'
 import ReactDisqusThread from 'react-disqus-thread'
-import { Row, Col, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import _ from 'lodash'
 
-export const Video = (props) => {
+const createVideos = (props) => {
   const opts = {
     height: '390',
     width: '640',
     playerVars: { // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+      autoplay: 0,
     },
   }
   const video = props.video
+  const youtubeIds = video.youtube ? video.youtube.videoIds : []
+  const videos = []
+  youtubeIds.map((youtubeId, i) =>
+    videos.push({ buttonName: `YouTube ${i + 1}`,
+      element: (<YouTube videoId={youtubeId} opts={opts} />) })
+  )
 
-  // TODO: more sophisciated logic than this?
-  const videoId = video.youtube.videoIds[0]
+  return videos
+}
+
+export const Video = (props) => {
+  if (!props.video) {
+    return (<div />)
+  }
+
+  const videos = createVideos(props)
+  const video = _.head(videos)
 
   return (<div>
-    <Row>
-      <Col xs={6}>
-        <h1>{video.name}</h1>
-        <p>
-          <Button bsStyle="primary">Youtube</Button>
-          <Button bsStyle="primary">Vimeo</Button>
-        </p>
-        <YouTube
-          videoId={videoId}
-          opts={opts}
-        />
-      </Col>
-      <Col xs={6}>
-      </Col>
-    </Row>
-    <Row>
-      <ReactDisqusThread
-        shortname="blocktube"
-        identifier={props.video.id}
-        title={video.name}
-      />
-    </Row>
+    <h1>{props.video.name}</h1>
+    <p>
+      {videos.map((v, i) => <Button key={i} bsStyle="primary">{v.buttonName}</Button>)}
+    </p>
+    {video ? video.element : (<p>No video found</p>)}
+    <ReactDisqusThread
+      shortname="blocktube"
+      identifier={props.video.id}
+      title={props.video.name}
+    />
   </div>)
 }
 Video.propTypes = {
   video: PropTypes.object,
 };
 
-export default connect()(Video)
+export default Video
 
 /*
 import { Button } from 'react-bootstrap'

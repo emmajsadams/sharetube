@@ -1,24 +1,27 @@
 # blocktube
 
-http://localhost:8080/?video={%22id%22:%226fdf6ffc-ed77-94fa-407e-a7b86ed9e59d%22,%22name%22:%22AnCap%20Rap%22,%22youtube%22:{%22videoIds%22:[%22pGuj-Z3PNg8%22]}}
-* TODO: make releases that can be easily downloaded
+http://localhost:8080/?videoUrl=https://gist.githubusercontent.com/codystebbins/0f02004fd00caa230c843d944145f1c6/raw/3693c6d917dea2bde190318940d08599749c60b6/video.json
 
 # building
-* npm install
-* npm run build
+* `npm install && npm run build`
+* app directory is ready to be hosted as a single page app
 
 # developing
-* npm install
-* `npm run start` - livereload development of app
-* `npm run test` - testem driven development
-* Using Atom with `linter-eslint`, `react`, and `editorconfig` plugins is preferred
+## Essential Commands
+* Install PhantomJS http://phantomjs.org/download.html
+* `npm run start --silent` - livereload development of app and test running
+* `npm run browser-test --silent` - parallel browser test run
+* `npm run build`
+
+## Optional Recommended Development
+* Using Atom with `linter-eslint`, `react`, and `editorconfig` plugins
 * Install https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 * Install https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 * Install https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
 
 # Influences
-Redux best pratices https://github.com/reactjs/redux/issues/1171
-Style: https://github.com/airbnb/javascript
+* Redux best pratices https://github.com/reactjs/redux/issues/1171
+* Style: https://github.com/airbnb/javascript
 
 ## Arichtecture
 * Containers vs components
@@ -38,7 +41,11 @@ Style: https://github.com/airbnb/javascript
  * http://blog.namangoel.com/browserify-vs-webpack-js-drama
 
 TODO
-* Create .editorconfig
+* UI test?
+ * https://voice.kadira.io/introducing-react-storybook-ec27f28de1e2#.2r53s4981
+ * http://www.uiharness.com/quick-start/
+* USe watchify instead testem because speed. Consider uber-watchify even for more speed
+* TODO: make releases that can be easily downloaded
 * configure testling to run my tests
 * Use uglifiyify in build step?
 * Add a form to create video.json https://github.com/erikras/redux-form/blob/master/docs/GettingStarted.md

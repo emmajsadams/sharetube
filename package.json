@@ -4,11 +4,9 @@
   "description": "staytuned",
   "main": "index.js",
   "scripts": {
-    "build": "npm run lint && browserify -t babelify ./index.js | uglifyjs -c > app/bundle.js",
-    "bundle-tests": "node scripts/bundle-tests.js",
-    "lint": "eslint src/**",
-    "start": "npm run watch-app & npm run static",
-    "static": "static app",
+    "build": "eslint src/** && browserify -t babelify ./src/index.js | uglifyjs -c > app/bundle.js",
+    "watch-test": "globify 'src/**/*.test.js' -w -o 'tmp/test-bundle.js' -i 'react/lib/ReactContext' -i 'react/lib/ExecutionEnvironment' -t babelify -p errorify -p proxyquire-universal",
+    "start": "npm run watch-app & static app & npm run watch-test",
     "test": "testem",
     "test-browsers": "testem ci -P 30",
     "watch-app": "watchify -t babelify -p errorify ./src/index.js -o app/bundle.js & livereloadify app"
@@ -30,6 +28,7 @@
   "dependencies": {
     "fjs": "^0.5.0",
     "guid": "0.0.12",
+    "lodash": "^4.6.1",
     "react": "^0.14.7",
     "react-addons-css-transition-group": "^0.14.7",
     "react-bootstrap": "^0.28.3",
@@ -41,7 +40,7 @@
     "react-youtube": "^5.1.0",
     "redux": "^3.3.1",
     "redux-actions": "^0.9.1",
-    "redux-promise": "^0.5.3"
+    "redux-saga": "^0.9.5"
   },
   "devDependencies": {
     "babel-core": "^6.7.2",
@@ -60,8 +59,10 @@
     "eslint-plugin-react": "^4.2.3",
     "fetch-mock": "^4.3.0",
     "glob": "^7.0.3",
+    "globify": "^1.2.1",
     "livereloadify": "^2.0.0",
     "node-static": "^0.7.7",
+    "phantomjs-prebuilt": "^2.1.7",
     "proxyquire": "^1.7.4",
     "proxyquire-universal": "^1.0.8",
     "proxyquireify": "^3.1.1",
@@ -70,7 +71,7 @@
     "redux-mock-store": "^1.0.2",
     "sinon": "^1.17.3",
     "sinon-as-promised": "^4.0.0",
-    "tape": "^4.5.1",
+    "testem": "^1.6.0",
     "uglify-js": "^2.6.2",
     "uglifyify": "^3.0.1"
   }

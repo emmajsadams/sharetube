@@ -1,16 +1,22 @@
 import { createStore, applyMiddleware } from 'redux'
 import { compose } from 'fjs'
-import promiseMiddleware from 'redux-promise'
+import createSagaMiddleware from 'redux-saga'
 
-// TODO: use immmuteable js to combine reducers
-import videoReducer from './reducers/videos'
+// TODO: use immmuteable js to combine reducers when needed
+import videosReducer from './reducers/videos'
+import videosSaga from './sagas/videos'
+
+const sagaMiddleware = createSagaMiddleware(videosSaga)
+const devTools = typeof window !== 'undefined' && window.devToolsExtension
+ ? window.devToolsExtension()
+ : f => f
 
 export default function configureStore(initialState) {
   return createStore(
-    videoReducer,
+    videosReducer,
     initialState,
     compose(
-      applyMiddleware(promiseMiddleware),
-      window.devToolsExtension ? window.devToolsExtension() : f => f
+      applyMiddleware(sagaMiddleware),
+      devTools
     ));
 }
