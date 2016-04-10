@@ -76,7 +76,6 @@
     "tap-min": "^1.1.0",
     "tap-notify": "^1.0.0",
     "tape": "^4.5.1",
-    "teaspoon": "^6.3.0",
     "testem": "^1.6.0",
     "uglify-js": "^2.6.2",
     "uglifyify": "^3.0.1",
