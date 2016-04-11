@@ -37,20 +37,24 @@ json file on a custom own domain so that storage providers can be changed easily
 * `id` is the YoutubeId of the video. From the `v` query param on a video url. EX: `https://www.youtube.com/watch?v=S7doAXkmGJw`
 
 #### Vimeo
+```
 {
   "type": "vimeo",
   "id": "59549698",
   "name": "WH Vimeo"
 },
+```
 * `id` is the VimeoId of the video. At the end of a video url. EX: `https://vimeo.com/59549698`
 
 #### HTML5
+```
 {
   "type": "html5",
   "mp4": "http://www.whitehouse.gov/videos/2013/February/021213_StateoftheUnion_NoGFX_HD.mp4",
   "webm": "https://upload.wikimedia.org/wikipedia/commons/5/59/2014_State_Of_The_Union_Address_Enhanced.webm",
   "name": "WH & WikiPedia HTML5"
 }
+```
 * `mp4` is the url of the mp4 encoded video
 * `webm` is the url of the webm encoded video
 * Recommended to specify both because some browsers only support one or the other.
