@@ -7,7 +7,9 @@ Shares a redundantly uploaded video. [Demo](https://codystebbins.com/blocktube/?
 * Use the hosted version at `https://codystebbins.com/blocktube/?videoUrl=` or host your own (latest release in `gh-pages` branch)
 * Only supported in modern browsers.
 
-# video.json
+Suggest features and file bugs via Github Issues.
+
+## video.json
 
 Blocktube requires a `video.json` file to be specified via the `videoUrl=` query param. This section explains how to create one. It's recommended that to host the
 json file on a custom own domain so that storage providers can be changed easily via DNS without impacting blocktube urls in the wild or the disqus thread that uses the json url as an id.
@@ -53,56 +55,47 @@ json file on a custom own domain so that storage providers can be changed easily
 * `webm` is the url of the webm encoded video
 * Recommended to specify both because some browsers only support one or the other.
 
-# Features pending
-
-* Better error handling
-* Custom forms for creating & editing video.json files
-* Analytics support (segment, google analytics, etc..)
-* Custom comment sections?
-
-If anyone has any ideas let me know. This is a fun side project for learning React
-
-# Building
-* `npm install && npm run build`
-* app directory is ready to be hosted as a single page app
-
-# Developing
-## Essential Commands
+## Developing
 * `npm run start --silent` - livereload development of app and test running
 * `npm run browser-test --silent` - parallel browser test run, meant to be done on developer machines
 * `npm test` - test run for ci using node
-* `npm run build` - build app for distribution
+* `npm run build` - build app for distribution. `/app`
 
-## Optional Recommended Development
+#### Recommended Development Environment
+* OSX or Unix. Windows not supported
 * Using Atom with `linter-eslint`, `react`, and `editorconfig` plugins
 * Install https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 * Install https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 * Install https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
 
-## Developer TODOs
+#### Developer TODOs
 * UI test?
  * https://voice.kadira.io/introducing-react-storybook-ec27f28de1e2#.2r53s4981
  * http://www.uiharness.com/quick-start/
 * Automate packaging of app with randomly generated bundle name to bust cache.
+* Better error handling
+* Custom forms for creating & editing video.json files
+* Analytics support (segment, google analytics, etc..)
+* Custom comment sections?
 
-# Influences
+## Influences
 * Redux best practices https://github.com/reactjs/redux/issues/1171s
 * Inline CSS via React: https://css-tricks.com/the-debate-around-do-we-even-need-css-anymore/
 * Style: https://github.com/airbnb/javascript
 
-## Architecture
+#### Architecture
 * Containers vs components
  * https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.s7qsqghzc
  * https://gist.github.com/chantastic/fc9e3853464dffdb1e3c
 * Ducks (actions and reducers in same file): https://github.com/erikras/ducks-modular-redux
 
-## Routing
+#### Routing
 * https://github.com/reactjs/react-router
 * https://github.com/reactjs/react-router-redux
 
-## Testing
+#### Testing
 * https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4#.44yxbzesv
 
-## Build tools
+#### Build tools
 * https://gist.github.com/substack/68f8d502be42d5cd4942
 * http://blog.namangoel.com/browserify-vs-webpack-js-drama
