@@ -1,10 +1,5 @@
-// Global css
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
-
-// Global libraries
 import 'babel-polyfill'
-
-//---------------------------------------------------------------
 
 import React from 'react'
 import { render } from 'react-dom'

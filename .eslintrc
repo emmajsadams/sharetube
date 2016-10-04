@@ -1,7 +1,8 @@
 {
   "rules": {
     "semi": 0,
-    "new-cap": 0
+    "new-cap": 0,
+    "linebreak-style": 0
   },
   "extends": "airbnb"
 }

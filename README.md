@@ -60,7 +60,7 @@ json file on a custom own domain so that storage providers can be changed easily
 * Recommended to specify both because some browsers only support one or the other.
 
 ## Developing
-* `npm run start --silent` - livereload development of app and test running
+* `npm run dev` - webpack-dev-server running app. TODO: expand on this once linting and testing is working
 * `npm run browser-test --silent` - parallel browser test run, meant to be done on developer machines
 * `npm test` - test run for ci using node
 * `npm run build` - build app for distribution. `/app`
