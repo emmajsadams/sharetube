@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
+import queryString from 'query-string';
 
 import VideoContainer from './videoContainer'
 import { setVideoIndex, videoFetchRequested } from '../reducers/videos'
@@ -7,10 +8,9 @@ import { setVideoIndex, videoFetchRequested } from '../reducers/videos'
 // TODO: Better name for MainContainer?
 // TODO: Test MainContainer
 const MainContainer = (props) => {
-  props.history.listen((location) => {
-    props.dispatch(setVideoIndex(0))
-    props.dispatch(videoFetchRequested(location.query.videoUrl))
-  })
+  const query = queryString.parse(location.search)
+  props.dispatch(setVideoIndex(0))
+  props.dispatch(videoFetchRequested(query.videoUrl))
 
   return <VideoContainer />
 }

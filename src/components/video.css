@@ -1,5 +1,5 @@
 .center-video {
-  display: 'flex';
-  alignItems: 'center';
-  justifyContent: 'center';
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

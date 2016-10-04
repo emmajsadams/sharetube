@@ -47,8 +47,8 @@ export const Video = (props) => {
 
   // TODO: Refactor buttons into separate VideoButton component?
   return (<div>
-    <h1 class="center-video">{videoName}</h1>
-    <ButtonToolbar class="center-video">
+    <h1 className="center-video">{videoName}</h1>
+    <ButtonToolbar className="center-video">
       {videos.map((v, i) => (
         <Button
           key={i}
@@ -58,7 +58,7 @@ export const Video = (props) => {
         </Button>))}
     </ButtonToolbar>
     <br />
-    <div class="center-video">
+    <div className="center-video">
       {video.get('element')}
     </div>
     <ReactDisqusThread
