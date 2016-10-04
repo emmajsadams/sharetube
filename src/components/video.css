@@ -1,0 +1,5 @@
+.center-video {
+  display: 'flex';
+  alignItems: 'center';
+  justifyContent: 'center';
+}

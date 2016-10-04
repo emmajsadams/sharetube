@@ -1,6 +1,13 @@
+// Global css
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
+
+// Global libraries
 import 'babel-polyfill'
+
+//---------------------------------------------------------------
+
 import React from 'react'
-import { render } from 'react-dom';
+import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createHistory, useQueries } from 'history'
 

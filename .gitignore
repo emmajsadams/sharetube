@@ -1,4 +1,4 @@
 node_modules
 app/bundle.js
-tmp
 npm-debug.log
+build

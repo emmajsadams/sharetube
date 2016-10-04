@@ -6,24 +6,22 @@ import { Map } from 'immutable';
 import videosReducer from './reducers/videos'
 import videosSaga from './sagas/videos'
 
-/*
-import { combineReducers } from 'redux-immutable';
-
-const rootReducer = combineReducers({
-  videos: videosReducer,
-})
-*/
-const sagaMiddleware = createSagaMiddleware(videosSaga)
+// TODO: configure this somewhere else
 const devTools = typeof window !== 'undefined' && window.devToolsExtension
  ? window.devToolsExtension()
  : f => f
 
+const sagaMiddleware = createSagaMiddleware()
+
 export default function configureStore(initialState = {}) {
-  return createStore(
+  const store = createStore(
     videosReducer,
     Map(initialState),
     compose(
       applyMiddleware(sagaMiddleware),
       devTools
     ));
+  sagaMiddleware.run(videosSaga);
+
+  return store;
 }

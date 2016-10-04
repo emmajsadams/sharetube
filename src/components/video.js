@@ -3,11 +3,11 @@ import YouTube from 'react-youtube'
 import ReactDisqusThread from 'react-disqus-thread'
 import { Button, ButtonToolbar } from 'react-bootstrap'
 import { Map } from 'immutable'
+require('./video.css');
 
 const noVideoFound = (<p>No video found</p>)
 const width = 640
 const height = 385
-const cssCenter = { display: 'flex', alignItems: 'center', justifyContent: 'center' }
 
 const createVideos = (props) => props.video.get('videos').map((v) => {
   const id = v.get('id')
@@ -47,8 +47,8 @@ export const Video = (props) => {
 
   // TODO: Refactor buttons into separate VideoButton component?
   return (<div>
-    <h1 style={cssCenter}>{videoName}</h1>
-    <ButtonToolbar style={cssCenter}>
+    <h1 class="center-video">{videoName}</h1>
+    <ButtonToolbar class="center-video">
       {videos.map((v, i) => (
         <Button
           key={i}
@@ -58,7 +58,7 @@ export const Video = (props) => {
         </Button>))}
     </ButtonToolbar>
     <br />
-    <div style={cssCenter}>
+    <div class="center-video">
       {video.get('element')}
     </div>
     <ReactDisqusThread
