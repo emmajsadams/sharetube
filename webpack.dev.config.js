@@ -8,7 +8,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve('./build')
+    path: path.resolve('./dist')
   },
   resolve: {
     extensions: ['', '.js', '.json']
