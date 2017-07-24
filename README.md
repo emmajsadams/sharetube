@@ -1,6 +1,6 @@
 # blocktube [![Build Status](https://travis-ci.org/codystebbins/blocktube.svg?branch=master)](https://travis-ci.org/codystebbins/blocktube)
 
-Shares a redundantly uploaded video. [Demo](https://codystebbins.com/blocktube/?videoUrl=https://codystebbins.com/public/blocktube/sotu2013.json) & [video.json](https://codystebbins.com/public/blocktube/sotu2013.json)
+Shares a redundantly uploaded video. [Demo](https://codystebbins.com/blocktube/?videoUrl=https://gist.githubusercontent.com/codystebbins/0f02004fd00caa230c843d944145f1c6/raw/6a317a46fa1b885dfb24bd0670ebe8728e407496/video.json) & [video.json](https://codystebbins.com/public/blocktube/sotu2013.json)
 
 * Supports YouTube, Vimeo, and HTML5 video (mp4 or WebM).
 * Creates a disqus thread based on the url of the videoUrl specified so comments persist despite a changing json file.
