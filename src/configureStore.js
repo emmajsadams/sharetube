@@ -6,14 +6,11 @@ import { Map } from 'immutable';
 import videosReducer from './reducers/videos'
 import videosSaga from './sagas/videos'
 
-// TODO: configure this somewhere else
-const devTools = typeof window !== 'undefined' && window.devToolsExtension
- ? window.devToolsExtension()
- : f => f
-
-const sagaMiddleware = createSagaMiddleware()
-
 export default function configureStore(initialState = {}) {
+  const devTools = typeof window !== 'undefined' && window.devToolsExtension
+    ? window.devToolsExtension()
+    : f => f
+  const sagaMiddleware = createSagaMiddleware()
   const store = createStore(
     videosReducer,
     Map(initialState),

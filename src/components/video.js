@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import YouTube from 'react-youtube'
-import ReactDisqusThread from 'react-disqus-thread'
+// import ReactDisqusThread from 'react-disqus-thread'
 import { Button, ButtonToolbar } from 'react-bootstrap'
 import { Map } from 'immutable'
 require('./video.css');
@@ -32,7 +32,7 @@ const createVideos = (props) => props.video.get('videos').map((v) => {
   }
 }).filter(v => v !== null)
 
-export const Video = (props) => {
+export default (props) => {
   if (!props.video) {
     return noVideoFound
   }
@@ -61,18 +61,15 @@ export const Video = (props) => {
     <div className="center-video">
       {video.get('element')}
     </div>
+
+  </div>)
+}
+
+
+/*
     <ReactDisqusThread
       shortname="blocktube"
       identifier={props.url}
       title={videoName}
     />
-  </div>)
-}
-Video.propTypes = {
-  index: PropTypes.number,
-  setVideoIndex: PropTypes.func,
-  video: PropTypes.object,
-  url: PropTypes.string,
-};
-
-export default Video
+*/

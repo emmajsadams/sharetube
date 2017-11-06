@@ -1,5 +1,5 @@
-import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import 'babel-polyfill'
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 import React from 'react'
 import { render } from 'react-dom'

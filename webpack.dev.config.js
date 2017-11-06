@@ -11,17 +11,17 @@ module.exports = {
     path: path.resolve('./dist')
   },
   resolve: {
-    extensions: ['', '.js', '.json']
+    extensions: ['.js', '.json']
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader', 'eslint-loader'],
+        loaders: ['babel-loader'],//, 'eslint-loader'],
       },
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.html$/, loader: 'html' },
+      { test: /\.html$/, loader: 'html-loader' },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.(woff|png|jpg|gif|svg|ttf|eot|woff2)$/, loader: 'url-loader' },
     ]
