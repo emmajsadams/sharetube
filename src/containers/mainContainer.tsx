@@ -1,13 +1,13 @@
-import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
-import * as queryString from 'query-string'
+import * as queryString from "query-string";
+import * as React from "react";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
 
-import VideoContainer from './videoContainer'
-import { fetchVideo } from '../api/videos';
+import { fetchVideo } from "../api/videos";
+import VideoContainer from "./videoContainer";
 
 const mapDispatchToProps = (dispatch: Dispatch<void>) => ({
-  fetchVideoFromUrl: () => dispatch(fetchVideo(queryString.parse(location.search).videoUrl))
+  fetchVideoFromUrl: () => dispatch(fetchVideo(queryString.parse(location.search).videoUrl)),
 });
 
 // TODO: Test MainContainer

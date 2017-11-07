@@ -1,14 +1,12 @@
-import { Dispatch } from 'redux';
-import { videoFetchRequested, videoFetchSucceeded, VideoFetchActions } from '../actions/videos'
+import { Dispatch } from "redux";
+import { VideoFetchActions, videoFetchRequested, videoFetchSucceeded } from "../actions/videos";
 
-export const fetchJson = (url: string) => fetch(url).then(r => r.json())
+export const fetchJson = (url: string) => fetch(url).then((r) => r.json());
 
-export function fetchVideo(url: string) {
-  return async function (dispatch: Dispatch<VideoFetchActions>) {
-    dispatch(videoFetchRequested(url))
+export const fetchVideo = (url: string) => async (dispatch: Dispatch<VideoFetchActions>) => {
+  dispatch(videoFetchRequested(url));
 
-    const video = await fetchJson(url)
+  const video = await fetchJson(url);
 
-    dispatch(videoFetchSucceeded(video))
-  }
-}
+  dispatch(videoFetchSucceeded(video));
+};

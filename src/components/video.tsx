@@ -1,13 +1,13 @@
-import * as React from 'react'
-import YouTube from 'react-youtube'
-import ReactDisqusComments from 'react-disqus-comments';
-import { Button, ButtonToolbar } from 'react-bootstrap'
-import { Video, Source } from '../types';
-require('./video.css');
+import * as React from "react";
+import { Button, ButtonToolbar } from "react-bootstrap";
+import ReactDisqusComments from "react-disqus-comments";
+import YouTube from "react-youtube";
+import { Source, Video } from "../types";
+import "./video.css";
 
-const width = 640
-const height = 385
-const supportedVideoTypes = ['mp4', 'ogg', 'webm'];
+const width = 640;
+const height = 385;
+const supportedVideoTypes = ["mp4", "ogg", "webm"];
 
 /*const createSourceTags = (source: Source) =>
   supportedVideoTypes
@@ -20,10 +20,16 @@ const supportedVideoTypes = ['mp4', 'ogg', 'webm'];
 const createVideo = (source: Source): React.ReactNode => {
   const id = source.id;
   switch (source.type) {
-    case 'youtube':
+    case "youtube":
       return <YouTube videoId={id} opts={{ width, height }} />;
-    case 'vimeo':
-      return <iframe src={`https://player.vimeo.com/video/${id}`} width={width} height={height} frameBorder="0" allowFullScreen></iframe>;
+    case "vimeo":
+      return <iframe
+        src={`https://player.vimeo.com/video/${id}`}
+        width={width}
+        height={height}
+        frameBorder="0"
+        allowFullScreen>
+      </iframe>;
     /*case 'html5':
       return <video width={width} height={height} controls>
         { createSourceTags(source) }
@@ -34,7 +40,7 @@ const createVideo = (source: Source): React.ReactNode => {
     default:
       return null;
   }
-}
+};
 
 interface Props {
   video: Video;
@@ -45,17 +51,17 @@ interface Props {
 
 export default ({ video, index = 0, setVideoIndex, url }: Props) => {
   if (!video) {
-    return null
+    return null;
   }
 
   // TODO: Manually throw index out of bounds error? Or just rely on noVideoFound case?
   const sources = video.sources;
-  const source = sources[index]
-  if (!source) {
-    return null
+  const selectedSource = sources[index];
+  if (!selectedSource) {
+    return null;
   }
 
-  const videoName = video.name
+  const videoName = video.name;
 
   // TODO: Refactor buttons into separate VideoButton component?
   return <div>
@@ -66,7 +72,7 @@ export default ({ video, index = 0, setVideoIndex, url }: Props) => {
           <Button
             key={source.name}
             bsStyle="primary"
-            onClick={() => { setVideoIndex(i) }}
+            onClick={() => { setVideoIndex(i); }}
           >
             {source.name}
           </Button>)
@@ -74,12 +80,12 @@ export default ({ video, index = 0, setVideoIndex, url }: Props) => {
     </ButtonToolbar>
     <br />
     <div className="center-video">
-      { createVideo(source) }
+      { createVideo(selectedSource) }
     </div>
     <ReactDisqusComments
       shortname="blocktube"
       identifier={url}
       title={videoName}
     />
-  </div>
-}
+  </div>;
+};
