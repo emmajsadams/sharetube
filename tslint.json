@@ -1,0 +1,7 @@
+{
+  "extends": "tslint:recommended",
+  "defaultSeverity": "error",
+  "rules": {
+    "interface-name": [true, "never-prefix"]
+  }
+}

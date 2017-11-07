@@ -1,1 +1,1 @@
-import './reducers/videos.test';
+import "./reducers/videos.test";

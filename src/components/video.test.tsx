@@ -1,7 +1,6 @@
 /*import React from 'react';
 import { shallow } from 'enzyme';
 import test from 'tape'
-import { fromJS } from 'immutable'
 import YouTube from 'react-youtube'
 import { Button, ButtonToolbar } from 'react-bootstrap'
 import { Video } from './video'

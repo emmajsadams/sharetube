@@ -16,7 +16,18 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.(ts|tsx)$/, loaders: ['ts-loader', 'tslint-loader'] },
+      {
+        test: /\.(ts|tsx)$/,
+        enforce: 'pre',
+        loader: 'tslint-loader',
+        options: {
+          fix: true,
+          emitErrors: true,
+          failOnHint: true,
+          typeCheck: true,
+        }
+      },
+      { test: /\.(ts|tsx)$/, loader: 'ts-loader' },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.html$/, loader: 'html-loader' },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
