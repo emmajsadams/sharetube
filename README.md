@@ -91,6 +91,9 @@ json file on a custom own domain so that storage providers can be changed easily
 * Inline CSS via React: https://css-tricks.com/the-debate-around-do-we-even-need-css-anymore/
 * Style: https://github.com/airbnb/javascript
 
+#### TypeScript
+* https://github.com/Microsoft/TypeScript-React-Starter
+
 #### Architecture
 * Containers vs components
  * https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.s7qsqghzc
