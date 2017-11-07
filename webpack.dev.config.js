@@ -5,21 +5,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve('./dist')
   },
+  devtool: 'cheap-module-eval-source-map',
   resolve: {
-    extensions: ['.js', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.json']
   },
   module: {
     loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: ['babel-loader'],//, 'eslint-loader'],
-      },
+      { test: /\.(ts|tsx)$/, loaders: ['ts-loader', 'tslint-loader'] },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.html$/, loader: 'html-loader' },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
@@ -28,9 +25,9 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-        'process.env': {
-            'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        }
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      }
     }),
     new HtmlWebpackPlugin({ template: './src/index.html' })
   ]

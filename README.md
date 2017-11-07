@@ -1,6 +1,6 @@
-# blocktube [![Build Status](https://travis-ci.org/codystebbins/blocktube.svg?branch=master)](https://travis-ci.org/codystebbins/blocktube)
+# sharetube [![Build Status](https://travis-ci.org/codystebbins/blocktube.svg?branch=master)](https://travis-ci.org/codystebbins/blocktube)
 
-Shares a redundantly uploaded video. [Demo](https://codystebbins.com/blocktube/?videoUrl=https://gist.githubusercontent.com/codystebbins/0f02004fd00caa230c843d944145f1c6/raw/6a317a46fa1b885dfb24bd0670ebe8728e407496/video.json) & [video.json](https://codystebbins.com/public/blocktube/sotu2013.json)
+Shares a redundantly uploaded video. [Demo](https://codystebbins.com/blocktube/?videoUrl=https://gist.githubusercontent.com/codystebbins/0f02004fd00caa230c843d944145f1c6/raw/6a317a46fa1b885dfb24bd0670ebe8728e407496/video.json) & [video.json](https://gist.github.com/codystebbins/0f02004fd00caa230c843d944145f1c6)
 
 * Supports YouTube, Vimeo, and HTML5 video (mp4 or WebM).
 * Creates a disqus thread based on the url of the videoUrl specified so comments persist despite a changing json file.
@@ -67,12 +67,16 @@ json file on a custom own domain so that storage providers can be changed easily
 
 #### Recommended Development Environment
 * OSX or Unix. Windows not supported
-* Using Atom with `linter-eslint`, `react`, and `editorconfig` plugins
+* Using VSCode the following extensions: `TSLint` and `EditorConfig`
 * Install https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 * Install https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
-* Install https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
 
 #### Developer TODOs
+* Setup tslint
+* Redeploy demo
+* Change name to sharetube throughout codebase.
+* Update recommended reading to refer to http://source.coveo.com/2016/05/11/isomorphic-typescript-ava-w-coverage/
+* Figure out why tests aren't causing the
 * UI test?
  * https://voice.kadira.io/introducing-react-storybook-ec27f28de1e2#.2r53s4981
  * http://www.uiharness.com/quick-start/
@@ -93,7 +97,7 @@ json file on a custom own domain so that storage providers can be changed easily
  * https://gist.github.com/chantastic/fc9e3853464dffdb1e3c
 * Ducks (actions and reducers in same file): https://github.com/erikras/ducks-modular-redux
 
-#### Routing
+#### Routing (not used in this project yet)
 * https://github.com/reactjs/react-router
 * https://github.com/reactjs/react-router-redux
 

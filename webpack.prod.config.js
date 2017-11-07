@@ -11,9 +11,6 @@ config.plugins.push(new webpack.optimize.DedupePlugin());
 config.plugins.push(new webpack.optimize.UglifyJsPlugin({
     minimize: true,
     sourceMap: true,
-    compress: {
-        drop_console: true
-    }
 }));
 
 module.exports = config;

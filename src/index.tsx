@@ -1,19 +1,17 @@
-import 'babel-polyfill'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
+// require('es6-promise').polyfill();
 
-import React from 'react'
+import * as React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import createHistory from 'history/createBrowserHistory'
 
 import configureStore from './configureStore'
 import MainContainer from './containers/mainContainer'
 
 const store = configureStore()
-const history = createHistory()
 
-render((
+render(
   <Provider store={store}>
-    <MainContainer history={history} />
+    <MainContainer />
   </Provider>
-), document.getElementById('react-mount'))
+, document.getElementById('react-mount'))
