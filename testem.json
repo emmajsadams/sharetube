@@ -1,6 +1,5 @@
 {
   "framework": "tap",
   "serve_files": [ "tmp/test-bundle.js" ],
-  "launch_in_dev": ["Chrome"],
-  "launch_in_ci": ["Chrome", "Firefox", "Safari", "Opera", "PhantomJS"]
+  "launch_in_ci": ["Chrome", "Firefox", "Safari"]
 }

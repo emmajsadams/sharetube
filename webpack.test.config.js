@@ -1,13 +1,25 @@
-'use strict';
+"use strict";
 
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-var TapWebpackPlugin = require('tap-webpack-plugin')
-const config = require('./webpack.dev.config');
+const webpack = require("webpack");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+var TapWebpackPlugin = require("tap-webpack-plugin");
+const config = require("./webpack.dev.config");
 
-config.entry = './src/test-index';
+// Change paths for test
+config.entry = "./src/test-index";
+config.output = {
+  filename: "test-bundle.js",
+  path: path.resolve("./tmp")
+};
+
+// stub file system
 config.node = { fs: "empty" };
-config.plugins = [new TapWebpackPlugin({ reporter: 'tap-spec' })];
+
+// remove html plugin
+config.plugins.pop()
+
+// Add tap plugin
+config.plugins.push(new TapWebpackPlugin({ reporter: "tap-spec" }));
 
 module.exports = config;

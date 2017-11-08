@@ -1,25 +1,25 @@
-'use strict';
+"use strict";
 
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: "./src/index.tsx",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve('./dist')
+    filename: "bundle.js",
+    path: path.resolve("./dist")
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: "cheap-module-eval-source-map",
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: [".ts", ".tsx", ".js", ".json"]
   },
   module: {
     loaders: [
       {
         test: /\.(ts|tsx)$/,
-        enforce: 'pre',
-        loader: 'tslint-loader',
+        enforce: "pre",
+        loader: "tslint-loader",
         options: {
           fix: true,
           emitErrors: true,
@@ -27,19 +27,19 @@ module.exports = {
           typeCheck: true,
         }
       },
-      { test: /\.(ts|tsx)$/, loader: 'ts-loader' },
-      { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.css$/, loader: 'style-loader!css-loader' },
-      { test: /\.(woff|png|jpg|gif|svg|ttf|eot|woff2)$/, loader: 'url-loader' },
+      { test: /\.(ts|tsx)$/, loader: "ts-loader" },
+      { test: /\.json$/, loader: "json-loader" },
+      { test: /\.html$/, loader: "html-loader" },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.(woff|png|jpg|gif|svg|ttf|eot|woff2)$/, loader: "url-loader" },
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      "process.env": {
+        "NODE_ENV": JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    new HtmlWebpackPlugin({ template: './src/index.html' })
+    new HtmlWebpackPlugin({ template: "./src/index.html" })
   ]
 };
