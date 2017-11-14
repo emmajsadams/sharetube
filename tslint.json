@@ -2,6 +2,7 @@
   "extends": "tslint:recommended",
   "defaultSeverity": "error",
   "rules": {
-    "interface-name": [true, "never-prefix"]
+    "interface-name": [true, "never-prefix"],
+    "no-string-literal": false
   }
 }

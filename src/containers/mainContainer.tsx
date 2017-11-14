@@ -13,5 +13,5 @@ const mapDispatchToProps = (dispatch: Dispatch<void>) => ({
 // TODO: Test MainContainer
 export default connect(null, mapDispatchToProps)(({ fetchVideoFromUrl }) => {
   fetchVideoFromUrl();
-  return <VideoContainer />;
+  return <div className="container"><VideoContainer /></div>;
 });

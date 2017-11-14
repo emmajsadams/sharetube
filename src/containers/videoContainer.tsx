@@ -16,6 +16,8 @@ export default connect(mapStateToProps)(({ video, index, url, dispatch }) =>
   (<Video
     video={video}
     index={index}
+    height={385}
+    width={640}
     setVideoIndex={(i) => { dispatch(setSourceIndex(i)); }}
     url={url}
   />),

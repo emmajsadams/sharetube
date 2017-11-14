@@ -1,6 +1,6 @@
 # sharetube [![Build Status](https://travis-ci.org/codystebbins/blocktube.svg?branch=master)](https://travis-ci.org/codystebbins/blocktube)
 
-Shares a redundantly uploaded video. [Demo](https://codystebbins.com/blocktube/?videoUrl=https://gist.githubusercontent.com/codystebbins/0f02004fd00caa230c843d944145f1c6/raw/6a317a46fa1b885dfb24bd0670ebe8728e407496/video.json) & [video.json](https://gist.github.com/codystebbins/0f02004fd00caa230c843d944145f1c6)
+Shares a redundantly uploaded video. [Demo](https://codystebbins.com/blocktube/?videoUrl=https://gist.githubusercontent.com/codystebbins/0f02004fd00caa230c843d944145f1c6/raw/4f6843aec0bf845740c515c59153e00ba8bf08a5/video.json) & [video.json used in demo](https://gist.github.com/codystebbins/0f02004fd00caa230c843d944145f1c6)
 
 * Supports YouTube, Vimeo, and HTML5 video (mp4 or WebM).
 * Creates a disqus thread based on the url of the videoUrl specified so comments persist despite a changing json file.
@@ -11,53 +11,51 @@ Suggest features and file bugs via Github Issues.
 
 ## video.json
 
-Blocktube requires a `video.json` file to be specified via the `videoUrl=` query param. This section explains how to create one. It's recommended that to host the
-json file on a custom own domain so that storage providers can be changed easily via DNS without impacting blocktube urls in the wild or the disqus thread that uses the json url as an id.
+A `video.json` file must be specified via the `videoUrl=` query param. This section explains how to create one.
 
 #### Metadata
 ```
 {
-  "name":"US State of the Union 2013",
-  "videos": [ ... ]
+  "name":"Sintel Trailer",
+  "sources": [ { type: "...", "values": { ... } } ]
 }
 ```
-* `name` is the name of the video
-* `videos` contains the many different sources of a blocktube video. Each element must contain one of the following types, which all have the following properties.
- * `name` is the name of the button
- * `type` is the name of the service
+* `name` is the name of the video.
+* `sources` contains the various sources for the video. Each source must have a `type` property which determines which values to provide for the `values` property.
 
 #### YouTube
 ```
 {
   "type": "youtube",
-  "id": "S7doAXkmGJw",
-  "name": "WH Youtube"
+  "values": { "id": "Fp0FCqeTp7g" }
 },
 ```
-* `id` is the YoutubeId of the video. From the `v` query param on a video url. EX: `https://www.youtube.com/watch?v=S7doAXkmGJw`
+* `id` is the youtube id of the video. From the `v` query param on a video url. EX: `https://www.youtube.com/watch?v=S7doAXkmGJw`
 
 #### Vimeo
 ```
 {
   "type": "vimeo",
-  "id": "59549698",
-  "name": "WH Vimeo"
+  "values": { "id": "131768374" }
 },
 ```
-* `id` is the VimeoId of the video. At the end of a video url. EX: `https://vimeo.com/59549698`
+* `id` is the vimeo id of the video. At the end of a video url. EX: `https://vimeo.com/59549698`
 
 #### HTML5
 ```
 {
   "type": "html5",
-  "mp4": "http://www.whitehouse.gov/videos/2013/February/021213_StateoftheUnion_NoGFX_HD.mp4",
-  "webm": "https://upload.wikimedia.org/wikipedia/commons/5/59/2014_State_Of_The_Union_Address_Enhanced.webm",
-  "name": "WH & WikiPedia HTML5"
+  "values": {
+    "mp4": "https://media.w3.org/2010/05/sintel/trailer.mp4",
+    "webm": "https://media.w3.org/2010/05/sintel/trailer.webm",
+    "ogg": "https://media.w3.org/2010/05/sintel/trailer.ogv"
+  }
 }
 ```
 * `mp4` is the url of the mp4 encoded video
 * `webm` is the url of the webm encoded video
-* Recommended to specify both because some browsers only support one or the other.
+* `ogg` is the url of the ogg encoded video
+* Not providing all three html5 values will mean support across browsers is limited. All three values should be coming from the same source (EX: https://media.w3.org) 
 
 ## Developing
 * `npm run dev` - webpack-dev-server running app. TODO: expand on this once linting and testing is working
@@ -66,25 +64,10 @@ json file on a custom own domain so that storage providers can be changed easily
 * `npm run build` - build app for distribution. `/app`
 
 #### Recommended Development Environment
-* OSX or Unix. Windows not supported
+* Developed on OSX. Should work on Unix environments. Unsure if works on Windows.
 * Using VSCode the following extensions: `TSLint` and `EditorConfig`
 * Install https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 * Install https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
-
-#### Developer TODOs
-* Setup tslint
-* Redeploy demo
-* Change name to sharetube throughout codebase.
-* Update recommended reading to refer to http://source.coveo.com/2016/05/11/isomorphic-typescript-ava-w-coverage/
-* Figure out why tests aren't causing the
-* UI test?
- * https://voice.kadira.io/introducing-react-storybook-ec27f28de1e2#.2r53s4981
- * http://www.uiharness.com/quick-start/
-* Automate packaging of app with randomly generated bundle name to bust cache.
-* Better error handling
-* Custom forms for creating & editing video.json files
-* Analytics support (segment, google analytics, etc..)
-* Custom comment sections?
 
 ## Influences
 * Redux best practices https://github.com/reactjs/redux/issues/1171s
@@ -110,3 +93,16 @@ json file on a custom own domain so that storage providers can be changed easily
 #### Build tools
 * https://gist.github.com/substack/68f8d502be42d5cd4942
 * http://blog.namangoel.com/browserify-vs-webpack-js-drama
+
+----------------
+
+#### Developer TODOs
+* Redeploy demo
+* Change name? Potentially sharetube? Will need to update resume services.
+* Update recommended reading in general and potentially add the following
+ * http://source.coveo.com/2016/05/11/isomorphic-typescript-ava-w-coverage/
+* UI test?
+ * https://voice.kadira.io/introducing-react-storybook-ec27f28de1e2#.2r53s4981
+ * http://www.uiharness.com/quick-start/
+* Custom forms for creating & editing video.json files
+* Analytics support (segment, google analytics, etc..)

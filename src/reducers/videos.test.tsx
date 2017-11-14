@@ -17,7 +17,7 @@ test("reducers/videos", (t) => {
   });
 
   t.test("videoFetchSucceeded should set state video", (assert) => {
-    const video = { name: "name", sources: [{ id: "id", type: "type", name: "name" }] };
+    const video = { name: "name", sources: [{ values: {}, type: "type", name: "name" }] };
     const store = configureStore({});
 
     store.dispatch(videoFetchSucceeded(video));

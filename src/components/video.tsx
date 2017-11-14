@@ -1,3 +1,4 @@
+import { upperFirst } from "lodash";
 import * as React from "react";
 import { Button, ButtonToolbar } from "react-bootstrap";
 import ReactDisqusComments from "react-disqus-comments";
@@ -5,60 +6,58 @@ import YouTube from "react-youtube";
 import { Source, Video } from "../types";
 import "./video.css";
 
-const width = 640;
-const height = 385;
-const supportedVideoTypes = ["mp4", "ogg", "webm"];
+const supportedSourceTypes = ["mp4", "ogg", "webm"];
 
-/*const createSourceTags = (source: Source) =>
-  supportedVideoTypes
-    .map(videoType => {
-      const videoSrc = source[videoType]
-      return videoSrc ? <source key={videoType} src={videoSrc} type={"video/" + videoType} /> : null
+const createSourceTags = (source: Source) =>
+  supportedSourceTypes
+    .map((videoType) => {
+      const videoSrc = source.values[videoType];
+      return videoSrc ? <source key={videoType} src={videoSrc} type={"video/" + videoType} /> : null;
     })
-    .filter(video => video !== null)*/
+    .filter((video) => video !== null);
 
-const createVideo = (source: Source): React.ReactNode => {
-  const id = source.id;
+const createVideo = (source: Source, height: number, width: number): React.ReactNode => {
+  const sourceId: string = source.values["id"];
   switch (source.type) {
     case "youtube":
-      return <YouTube videoId={id} opts={{ width, height }} />;
-    case "vimeo":
+      return <YouTube videoId={sourceId} opts={{ width, height }} />;
+    case "vimeo" :
       return <iframe
-        src={`https://player.vimeo.com/video/${id}`}
+        src={`https://player.vimeo.com/video/${sourceId}`}
         width={width}
         height={height}
         frameBorder="0"
         allowFullScreen>
       </iframe>;
-    /*case 'html5':
+    case "html5" :
       return <video width={width} height={height} controls>
         { createSourceTags(source) }
         Your browser does not support the video tag.
         Support for flash might be coming, but use a modern browser till then
-      </video>
-    */
+      </video>;
     default:
       return null;
   }
 };
 
 interface Props {
-  video: Video;
+  height: number;
   index: number;
   setVideoIndex: (i: number) => void;
   url: string;
+  video: Video;
+  width: number;
 }
 
-export default ({ video, index = 0, setVideoIndex, url }: Props) => {
+export default ({ height, index = 0, setVideoIndex, url, video, width }: Props) => {
   if (!video) {
     return null;
   }
 
-  // TODO: Manually throw index out of bounds error? Or just rely on noVideoFound case?
   const sources = video.sources;
   const selectedSource = sources[index];
   if (!selectedSource) {
-    return null;
+    return <p>No source found at that index</p>;
   }
 
   const videoName = video.name;
@@ -70,17 +69,17 @@ export default ({ video, index = 0, setVideoIndex, url }: Props) => {
       {
         sources.map((source, i) =>
           <Button
-            key={source.name}
+            key={source.type}
             bsStyle="primary"
             onClick={() => { setVideoIndex(i); }}
           >
-            {source.name}
+            {upperFirst(source.type)}
           </Button>)
       }
     </ButtonToolbar>
     <br />
     <div className="center-video">
-      { createVideo(selectedSource) }
+      { createVideo(selectedSource, height, width) }
     </div>
     <ReactDisqusComments
       shortname="blocktube"

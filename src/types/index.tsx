@@ -6,12 +6,17 @@ export interface StoreState {
 
 export interface Video {
   name: string;
-  sources: Source[]
+  sources?: Source[];
 }
 
-// TODO: This type does not include support for html5
 export interface Source {
   type: string;
-  id: string;
-  name: string;
+  values: SourceValues;
+}
+
+// TODO: Consider looking into pattern matching for this https://github.com/Microsoft/TypeScript/issues/165
+// Match #1: { id: string }
+// Match #2: { mp4?: string, ogg?: string, webm?: string }
+export interface SourceValues {
+  [valueName: string]: string;
 }
