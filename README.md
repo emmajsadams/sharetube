@@ -97,11 +97,11 @@ A `video.json` file must be specified via the `videoUrl=` query param. This sect
 ----------------
 
 #### Developer TODOs
-* Redeploy demo
+* Create flowchart for rendering video (see slack notification chart https://mobile.twitter.com/codevisuals/status/838881724016787457/photo/1https://mobile.twitter.com/codevisuals/status/838881724016787457/photo/1)
 * Change name? Potentially sharetube? Will need to update resume services.
 * Update recommended reading in general and potentially add the following
  * http://source.coveo.com/2016/05/11/isomorphic-typescript-ava-w-coverage/
-* UI test?
+* UI test
  * https://voice.kadira.io/introducing-react-storybook-ec27f28de1e2#.2r53s4981
  * http://www.uiharness.com/quick-start/
 * Custom forms for creating & editing video.json files
