@@ -1,3 +1,5 @@
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://gitlab.com/EmmaJCline/sharetube)
+
 # sharetube [![Build Status](https://travis-ci.org/codystebbins/blocktube.svg?branch=master)](https://travis-ci.org/codystebbins/blocktube)
 
 Shares a redundantly uploaded video. [Demo](https://codystebbins.com/blocktube/?videoUrl=https://gist.githubusercontent.com/codystebbins/0f02004fd00caa230c843d944145f1c6/raw/4f6843aec0bf845740c515c59153e00ba8bf08a5/video.json) & [video.json used in demo](https://gist.github.com/codystebbins/0f02004fd00caa230c843d944145f1c6)
